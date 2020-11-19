@@ -17,15 +17,15 @@ int lastIndex(int arr[], int size, int x) {
     int smallAns = lastIndex(arr + 1, size - 1, x);
     
     // Small step
-    if (smallAns == -1) {
-        // check if first element is x before returning -1
-        if (arr[0] == x)
-        	return 0;
-    	else
-        	return -1;
-    }
+    if (smallAns != -1)
+        return smallAns + 1;
     
-    return smallAns + 1;
+    // As x not in smallAns, check for first element
+    if (arr[0] == x) 
+        return 0;
+    else
+        return -1;
+    
 }
 
 int main() {
